@@ -2,6 +2,7 @@ package com.example.hitogrupalserver.controller;
 
 import com.example.hitogrupalserver.model.MusicaEntity;
 import com.example.hitogrupalserver.model.UsuarioEntity;
+import com.example.hitogrupalserver.repositoryCategoria.CategoriaService;
 import com.example.hitogrupalserver.repositoryMusica.MusicaService;
 import com.example.hitogrupalserver.repositoryUsuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,17 @@ public class Controlador {
 
     @Autowired private UsuarioService usuarioService;
     @Autowired private MusicaService musicaService;
+    @Autowired private CategoriaService categoriaService;
 
 
     @RequestMapping("/")
     public String index(){
 
-        MusicaEntity musica = new MusicaEntity();
-        musica.setNombre("Blood//Water");
 
+        categoriaService.listaCategorias().forEach(
+                categoria -> System.out.println(categoria.getGenero())
+        );
 
-        musicaService.guardarMusica(musica);
 
         return "index";
     }
