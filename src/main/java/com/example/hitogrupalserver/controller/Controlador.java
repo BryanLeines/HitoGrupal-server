@@ -18,17 +18,21 @@ public class Controlador {
     @Autowired private MusicaService musicaService;
     @Autowired private CategoriaService categoriaService;
 
-
     @RequestMapping("/")
     public String index(){
 
 
-        categoriaService.listaCategorias().forEach(
-                categoria -> System.out.println(categoria.getGenero())
-        );
-
-
         return "index";
     }
+
+    @GetMapping("/loginRegister")
+    public String peticionloginregister(ModelMap model) {
+
+        model.addAttribute("loginRegister", new UsuarioEntity());
+
+        return "loginRegister";
+    }
+
+
 
 }
