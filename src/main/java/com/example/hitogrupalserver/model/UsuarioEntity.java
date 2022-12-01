@@ -20,7 +20,7 @@ public class UsuarioEntity {
     private String email;
     @Basic
     @Column(name = "contraseña")
-    private String contraseña;
+    private String passw;
 
     @OneToMany(mappedBy = "id")
     private Collection<MusicaEntity> musicas;
@@ -50,12 +50,12 @@ public class UsuarioEntity {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassw() {
+        return passw;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassw(String contraseña) {
+        this.passw = contraseña;
     }
 
 
@@ -72,11 +72,11 @@ public class UsuarioEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UsuarioEntity that = (UsuarioEntity) o;
-        return id == that.id && Objects.equals(nombre, that.nombre) && Objects.equals(email, that.email) && Objects.equals(contraseña, that.contraseña);
+        return id == that.id && Objects.equals(nombre, that.nombre) && Objects.equals(email, that.email) && Objects.equals(passw, that.passw);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, email, contraseña);
+        return Objects.hash(id, nombre, email, passw);
     }
 }
