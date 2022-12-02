@@ -14,14 +14,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Controlador {
 
+    private Login login;
     @Autowired private UsuarioService usuarioService;
     @Autowired private MusicaService musicaService;
     @Autowired private CategoriaService categoriaService;
+    @Autowired public void setLogin(Login login) {this.login = login;}
 
 
+
+    /*-----------------------------------------------------------------------------------------Ruta inicial-----------------------------*/
     @RequestMapping("/")
-    public String index(){
+    public String index(ModelMap model){
 
+
+        UsuarioEntity u = new UsuarioEntity();
+        u.setNombre("Pepe");
+        u.setEmail("pepe@gmail.com");
+
+        model.addAttribute("usuario", u);
 
         categoriaService.listaCategorias().forEach(
                 categoria -> System.out.println(categoria.getGenero())
