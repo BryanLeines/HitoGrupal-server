@@ -28,7 +28,7 @@ public class Controlador {
         );
 
 
-        return "index";
+        return "layout";
     }
 
 }
