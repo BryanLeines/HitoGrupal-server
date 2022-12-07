@@ -14,12 +14,50 @@ public class UsuarioService {
         this.usuarioRepo = usuarioRepo;
     }
 
+    public UsuarioEntity findUsuario(String inicio){
 
-    //Guarda el usuario en la base de datos
-    public void guardarUsuario(UsuarioEntity user) {
-        usuarioRepo.save(user);
+        out:
+        for(UsuarioEntity u: usuarioRepo.findAll()){
+            if(u.getNombre().equals(inicio) || u.getEmail().equals(inicio)){
+                return u;
+            }
+        }
+
+        return null;
+    }
+
+    /*-------------- para Register --------------*/
+    public Boolean findByEmail(String email){
+
+        for(UsuarioEntity u: usuarioRepo.findAll()){
+            if(u.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
     }
 
 
+    /*-------------- para Login --------------*/
+    public boolean confirmarUsuario(String inicio, String pssw){
+
+        out:
+        for(UsuarioEntity u: usuarioRepo.findAll()){
+            if(u.getNombre().equals(inicio) || u.getEmail().equals(inicio)){
+                if(u.getPassw().equals(pssw)){
+                    return true;
+                }
+                else{
+                    break out;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public void guardarUsuario(UsuarioEntity user) {
+        usuarioRepo.save(user);
+    }
 
 }

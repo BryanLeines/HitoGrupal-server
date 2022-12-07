@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+.main{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to top right,rgba(100, 213, 251, 0.3),rgba(228, 166, 249, 0.5)) fixed;
+    background-attachment: fixed;
+}
+
+.card-container{
+    padding: 40px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+}
+
+.card {
+    width: 222px;
+    height: 315px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 13px 15px 0px rgba(0, 0, 0, 0.05);
+    transition: ease all 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.1) translateY(-15px);
+}
+
+#back {
+    width: 222px;
+    height: 315px;
+    overflow: hidden;
+    position: absolute;
+    border-radius: 10px;
+}
+
+#back img {
+    width: 222px;
+    filter: blur(30px) ;
+    height: 222px;
+    margin: -5px -10px -10px -5px;
+    opacity: 0.9;
+}
+
+#art {
+    position: relative;
+    border-radius: 100%;
+    width: 176px;
+    height: 176px;
+    margin: 23px;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.05);
+    transition: ease all 0.2s;
+}
+
+#title, #artist {
+    margin: 0px 17px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#title {
+    margin-top: 31px;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 20px;
+    color: #393939;
+}
+
+#artist {
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    color: #707070;
+}

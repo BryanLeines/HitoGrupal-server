@@ -11,6 +11,10 @@ public class MusicaEntity {
     @Id
     @Column(name = "id")
     private int id;
+
+    @Basic
+    @Column(name = "imagen")
+    private String imagen;
     @Basic
     @Column(name = "audio")
     private String audio;
@@ -18,17 +22,11 @@ public class MusicaEntity {
     @Column(name = "nombre")
     private String nombre;
     @Basic
+    @Column(name = "autor")
+    private String autor;
+    @Basic
     @Column(name = "tipo")
     private String tipo;
-
-   /* @Basic
-    @Column(name = "idcategoria")
-    private Integer idcategoria;
-
-    @Basic
-    @Column(name = "idusuario")
-    private Integer idusuario;*/
-
     @Basic
     @Column(name = "valoracion")
     private Integer valoracion;
@@ -41,6 +39,8 @@ public class MusicaEntity {
     @JoinColumn(name = "idusuario")
     private UsuarioEntity idusuario;
 
+
+
     public int getId() {
         return id;
     }
@@ -48,6 +48,10 @@ public class MusicaEntity {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getImagen() {return imagen;}
+
+    public void setImagen(String imagen) {this.imagen = imagen;}
 
     public String getAudio() {
         return audio;
@@ -63,6 +67,14 @@ public class MusicaEntity {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public String getTipo() {

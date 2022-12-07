@@ -1,92 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/nav-layout}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <link rel="stylesheet" th:href="@{style.css}">
+  <link rel="stylesheet" th:href="@{css/index.css}">
 </head>
 <body>
 
-
-    <div class="navigation">
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="fa fa-home"></span>
-                    <span>Home</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <span class="fa fa-search"></span>
-                    <span>Search</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <span class="fa fas fa-book"></span>
-                    <span>Your Library</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="navigation">
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="fa fas fa-plus-square"></span>
-                    <span>Create Playlist</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <span class="fa fas fa-heart"></span>
-                    <span>Liked Songs</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="policies">
-
-    </div>
-</div>
-
-<div class="main-container">
-    <div class="topbar">
-        <div class="navbar">
-            <ul>
-                <li>
-                    <a href="#">Añadir Música</a>
-                </li>
-                <li>
-                    <a href="#">Mi Música</a>
-                </li>
-                <li>
-                    <a href="#">About Us</a>
-                </li>
-                <li class="divider">|</li>
-            </ul>
-            <button type="button">Get Started</button>
-        </div>
-    </div>
-
-    <div class="spotify-playlists">
-        <h2>Spotify Playlists</h2>
-
-        <div class="list">
+    <div layout:fragment="content">
+        <div class="middle-header">
+            <div class="main">
+                <h1 class="aqua"><i class="fas fa-headphones-alt"></i></h1>
+                <p>“When words fail music speaks.” ― Irena Huang.</p>
+                <a href="#categorias" class="button">Dive Into Music<i class="far fa-arrow-alt-circle-down"></i></a>
+            </div>
         </div>
 
-    </div>
-</div>
+        <div id="categorias" class="categorias">
+            hula
+        </div>
 
-<script
-        src="https://kit.fontawesome.com/23cecef777.js"
-        crossorigin="anonymous"
-></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        <script th:src="@{js/index.js}"></script>
+    </div>
+
 </body>
 </html>

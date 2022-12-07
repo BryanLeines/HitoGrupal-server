@@ -8,6 +8,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "usuario", schema = "hito", catalog = "")
 public class UsuarioEntity {
+
+    @Transient
+    private String iniciar;
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -25,6 +29,13 @@ public class UsuarioEntity {
     @OneToMany(mappedBy = "id")
     private Collection<MusicaEntity> musicas;
 
+    public String getIniciar() {
+        return iniciar;
+    }
+
+    public void setIniciar(String iniciar) {
+        this.iniciar = iniciar;
+    }
 
     public int getId() {
         return id;
@@ -59,11 +70,11 @@ public class UsuarioEntity {
     }
 
 
-    public Collection<MusicaEntity> getMusicasC() {
-        return this. musicas;
+    public Collection<MusicaEntity> getMusicas() {
+        return musicas;
     }
 
-    public void setMusicasC(Collection<MusicaEntity> musicas) {
+    public void setMusicas(Collection<MusicaEntity> musicas) {
         this.musicas = musicas;
     }
 
