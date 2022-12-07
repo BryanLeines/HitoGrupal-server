@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="[http://www.ultraq.net.nz/thymeleaf/layout](http://www.ultraq.net.nz/thymeleaf/layout)">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/nav-layout.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a th:href="@{/}">
+                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="fa fa-search"></span>
+                        <span>Search</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="fa fas fa-book"></span>
+                        <span>Your Library</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="fa fas fa-plus-square"></span>
+                        <span>Create Playlist</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="fa fas fa-heart"></span>
+                        <span>Liked Songs</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="topbar">
+            <div class="navbar">
+                <ul>
+                    <li>
+                        <a th:href="@{/addMusic}">Add Music</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/myMusic}">My Music</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/allMusic}">All Music</a>
+                    </li>
+                    <li class="divider">|</li>
+                </ul>
+                <a th:href="@{/loginRegister}" class="button">Get Started</a>
+            </div>
+        </div>
+
+        <div class="spotify-playlists">
+            <div class="list" layout:fragment="content">>
+                    Contenido del resto de la pagina
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
+</body>
+</html>
