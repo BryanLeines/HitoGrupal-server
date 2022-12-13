@@ -19,12 +19,9 @@
 }
 
 .loginRegister{
+    background-color: black;
     align-items: center;
-    background-color: var(--white);
-    background: url("../img/fondo1LoginRegister.gif");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+
     background-size: cover;
     display: grid;
     width: 100%;
@@ -105,7 +102,7 @@
 
 .overlay {
     background-color: var(--lightblue);
-    background: url("../img/vaporwave-synthwave.gif");
+    background: url("../img/15981-musica.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

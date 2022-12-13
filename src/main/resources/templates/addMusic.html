@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/nav-layout}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{css/addMusic.css}" type="text/css">
+    <title>Add Music</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <div class="addmusic-container">
+        <div class="login-box">
+            <h2>Añadir canciones</h2>
+            <form th:action="@{/comprobarMusic}" th:object="${addMusic}" method="post">
+                <div class="user-box">
+                    <input type="text" name="" th:field="*{nombre}" id="title" >
+                    <label for="title">Title</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" th:field="*{autor}" id="author" >
+                    <label for="author">Author</label>
+                </div>
+                <div class="user-box ">
+                    <input type="text" name="" th:field="*{imagen}" id="music_file" >
+                    <label for="music_file">Image URl</label>
+                </div>
+                <div class="user-box2">
+                    <select th:field="*{tipo}" id="type" >
+                        <option value="audio/mp3">MP3</option>
+                        <option value="audio/wav">WAV</option>
+                        <option value="audio/flac">FLAC</option>
+                    </select>
+                    <label for="type">Selecciona el formato</label>
+                </div>
+
+                <button type="submit" class="custom-btn btn-3"><span>ENVIAR</span></button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

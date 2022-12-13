@@ -19,12 +19,20 @@ public class MusicaService {
         this.listaMusica = new ArrayList<>();
     }
 
+    public boolean findByNombre(String nombre){
+        return musicaRepo.findByNombre(nombre).size() > 0;
+    }
+
     public List<MusicaEntity> mostrarMusica(){
         listaMusica.clear();
         for (MusicaEntity m: musicaRepo.findAll()) {
             this.listaMusica.add(m);
         }
         return this.listaMusica;
+    }
+
+    public List<MusicaEntity> miMusica(int idUsuario){
+        return musicaRepo.mostrarMiMusica(idUsuario);
     }
 
 

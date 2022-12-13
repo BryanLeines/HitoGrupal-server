@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/nav-layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>My Music</title>
+    <link rel="stylesheet" th:href="@{css/allMusic.css}">
+</head>
+<body>
+
+  <div layout:fragment="content">
+    <div class="main">
+      <h2>My Music</h2>
+      <div class="card-container">
+        <div th:each="music: ${myMusic}">
+
+          <div class="card" th:id="${music.getId()}" onclick="popUp(id)" >
+            <div id="back">
+              <img  th:attr="src=${music.getImagen()}" alt="foto de musica">
+            </div>
+            <img  id="art" th:attr="src=${music.getImagen()}" alt="foto de musica">
+            <div id="title" th:text="${music.getNombre()}"></div>
+            <div id="artist" th:text="${music.getAutor()}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pop-up">
+      <div id="full-div">
+        <div id="music-player-div">
+          <span class="close"><i class="fa-solid fa-xmark"></i></span>
+          <div id="music-div" class="1">
+            <audio id="audio-ele" autoplay>
+              <source id="song-url" src="" type="audio/mp3" />
+            </audio>
+            <!-- <input type="range" max=100 min=0/> -->
+            <img
+                    id="music-logo"
+                    src=""
+                    alt=""
+            />
+            <div id="progress-bar"><div id="progress-report"></div></div>
+
+            <div id="controls-div">
+              <i id="shuffle" class="fas fa-random" aria-hidden="true"></i>
+              <i
+                      id="backward"
+                      class="fas fa-step-backward"
+                      aria-hidden="true"
+              ></i>
+              <i
+                      id="play-pause"
+                      class="far fa-pause-circle"
+                      aria-hidden="true"
+              ></i>
+              <i id="forward" class="fas fa-step-forward" aria-hidden="true"></i>
+              <i id="restart" class="fas fa-undo" aria-hidden="true"></i>
+            </div>
+
+            <div id="song-desc">
+              <h3 id="song"></h3>
+              <p id="artista"></p>
+            </div>
+          </div>
+          <div id="listMusic-div">
+            <h3>Mismo Autor</h3>
+            <hr>
+            <!--<div class="music-cards">
+                    <img class="card-image" src="https://m.media-amazon.com/images/I/81mNRm3F6KL._SS500_.jpg" alt="Avicii Without You">
+                    <div class="card-desc">
+                        <h3 class="card-heading">Without You</h3>
+                        <p class="card-author">Avicii</p>
+                    </div>
+                </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script th:src="@{js/allmusic.js}"></script>
+      <script type="text/javascript" th:inline="javascript" >
+                  musicas = [[${myMusic}]];
+      </script>
+  </div>
+
+</body>
+</html>

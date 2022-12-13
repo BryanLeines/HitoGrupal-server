@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.File;
 import java.io.IOException;
 
 @Controller
@@ -95,17 +96,40 @@ public class Controlador {
     @RequestMapping("/addMusic")
     public String addMusic(ModelMap model){
 
-        model.addAttribute("loginRegister", new UsuarioEntity());
+        model.addAttribute("usuarioActual", login.getLogin());
+        model.addAttribute("addMusic", new MusicaEntity());
+        return "addMusic";
+    }
 
-        return "loginRegister";
+    @RequestMapping("/comprobarMusic")
+    public String comprobarMusic(MusicaEntity music) {
+
+        //comprobar si la cancion esta registrada en la base de datos(comprobando si el nombre existe)
+        //si no esta registrada, se registra
+        if(musicaService.findByNombre(music.getNombre())){
+            System.out.println("La cancion: "+music.getNombre()+" ya existe");
+
+            return "redirect:/addMusic"; // lo reenvio a la ruta 'addMusic'
+        }
+        else{
+            System.out.println("La cancion no existe");
+
+            music.setIdusuario(login.getLogin());
+
+            musicaService.guardarMusica(music); //Guarda la cancion en la base de datos
+            return "redirect:/"; // lo reenvio a la ruta '/'
+        }
     }
 
     @RequestMapping("/myMusic")
     public String myMusic(ModelMap model){
 
-        model.addAttribute("loginRegister", new UsuarioEntity());
 
-        return "loginRegister";
+        System.out.println("El usuario actual es: "+login.getLogin().getId());
+        model.addAttribute("usuarioActual", login.getLogin());
+        model.addAttribute("myMusic", musicaService.miMusica(login.getLogin().getId()));
+
+        return "myMusic";
     }
 
     @RequestMapping("/allMusic")
@@ -114,7 +138,7 @@ public class Controlador {
         model.addAttribute("usuarioActual", login.getLogin());
         model.addAttribute("allMusic", musicaService.mostrarMusica());
 
-        return "allmusic";
+        return "allMusic";
     }
 
 }

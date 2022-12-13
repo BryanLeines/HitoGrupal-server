@@ -2,6 +2,8 @@ package com.example.hitogrupalserver.model;
 
 import jakarta.persistence.*;
 
+import java.io.File;
+import java.sql.Blob;
 import java.util.Objects;
 
 @Entity
@@ -49,9 +51,13 @@ public class MusicaEntity {
         this.id = id;
     }
 
-    public String getImagen() {return imagen;}
+    public String getImagen() {
+        return imagen;
+    }
 
-    public void setImagen(String imagen) {this.imagen = imagen;}
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public String getAudio() {
         return audio;
@@ -85,13 +91,9 @@ public class MusicaEntity {
         this.tipo = tipo;
     }
 
-    public CategoriaEntity getIdcategoria() {
-        return idcategoria;
-    }
+    public CategoriaEntity getIdcategoria() {return idcategoria;}
 
-    public void setIdcategoria(Integer CategoriaEntity) {
-        this.idcategoria = idcategoria;
-    }
+    public void setIdcategoria(CategoriaEntity idcategoria) {this.idcategoria = idcategoria;}
 
     public UsuarioEntity getIdusuario() {
         return idusuario;
@@ -116,9 +118,23 @@ public class MusicaEntity {
         MusicaEntity that = (MusicaEntity) o;
         return id == that.id && Objects.equals(audio, that.audio) && Objects.equals(nombre, that.nombre) && Objects.equals(tipo, that.tipo) && Objects.equals(idcategoria, that.idcategoria) && Objects.equals(idusuario, that.idusuario) && Objects.equals(valoracion, that.valoracion);
     }
-
     @Override
     public int hashCode() {
-        return Objects.hash(id, audio, nombre, tipo, idcategoria, idusuario, valoracion);
+        return Objects.hash(id, imagen, audio, nombre, autor, tipo, valoracion, idcategoria, idusuario);
+    }
+
+    @Override
+    public String toString() {
+        return "MusicaEntity{" +
+                "id=" + id +
+                ", imagen=" + imagen +
+                ", audio=" + audio +
+                ", nombre='" + nombre + '\'' +
+                ", autor='" + autor + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", valoracion=" + valoracion +
+                ", idcategoria=" + idcategoria +
+                ", idusuario=" + idusuario +
+                '}';
     }
 }
